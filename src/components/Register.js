@@ -166,7 +166,7 @@ function Register({ history, onCreateTipJar }) {
                                 label="&nbsp; PayPal.me/ &nbsp;"
                                 value="paypal"
                                 required
-                                onChange={() => setFieldValue("payment", "paypal")}
+                                onChange={() => setFieldValue("payment", "Paypal")}
                               />
                             </InputGroup.Text>
                           </InputGroup.Prepend>
@@ -189,7 +189,7 @@ function Register({ history, onCreateTipJar }) {
                                 label="&nbsp; Venmo.com/"
                                 value="venmo"
                                 required
-                                onChange={() => setFieldValue("payment", "venmo")}
+                                onChange={() => setFieldValue("payment", "Venmo")}
                               />
                             </InputGroup.Text>
                           </InputGroup.Prepend>

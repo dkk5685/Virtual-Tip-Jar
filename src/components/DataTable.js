@@ -33,7 +33,7 @@ const DatatablePage = ({ tipJars }) => {
       </React.Fragment>
     )
     const tips = (
-      (tipJar.payment === 'paypal') ? (
+      (tipJar.payment === 'Paypal') ? (
         <a href={`https://www.paypal.me/${tipJar.paypal}`} className="badge badge-primary p-2">
           <FontAwesomeIcon icon={faPaypal} className="fa-2x" />
         </a>
