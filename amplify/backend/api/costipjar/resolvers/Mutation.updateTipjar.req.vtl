@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateTipjarInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateTipjarInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE tipjar SET $update WHERE id=$ctx.args.updateTipjarInput.id", "SELECT * FROM tipjar WHERE id=$ctx.args.updateTipjarInput.id"]
+}

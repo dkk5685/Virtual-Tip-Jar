@@ -1,0 +1,25 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-costipjar-prod-211247-authRole",
+            "UnauthRoleArn": "arn:aws:iam::379198082253:role/amplify-costipjar-prod-211247-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::379198082253:role/amplify-costipjar-prod-211247-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-costipjar-prod-211247-deployment",
+            "UnauthRoleName": "amplify-costipjar-prod-211247-unauthRole",
+            "StackName": "amplify-costipjar-prod-211247",
+            "StackId": "arn:aws:cloudformation:us-east-2:379198082253:stack/amplify-costipjar-prod-211247/f0ceaa30-7b99-11ea-bdb7-0608930970a0",
+            "AmplifyAppId": "d3aupx10mynzsw"
+        },
+        "categories": {
+            "api": {
+                "costipjar": {
+                    "rdsRegion": "us-east-2",
+                    "rdsClusterIdentifier": "arn:aws:rds:us-east-2:379198082253:cluster:database-1",
+                    "rdsSecretStoreArn": "arn:aws:secretsmanager:us-east-2:379198082253:secret:rds-db-credentials/cluster-Y642FXUDMVDGVTAXPBJVJHV4UU/admin-RaofnW",
+                    "rdsDatabaseName": "costipjar"
+                }
+            }
+        }
+    }
+}

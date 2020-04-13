@@ -1,0 +1,61 @@
+input CreateTipjarInput {
+  name: String!
+  position: String
+  company: String
+  city: String
+  state: String
+  email: String
+  payment: String
+  venmo: String
+  paypal: String
+  code: String
+}
+
+type tipjar {
+  id: Int!
+  name: String!
+  position: String
+  company: String
+  city: String
+  state: String
+  email: String
+  payment: String
+  venmo: String
+  paypal: String
+  code: String
+}
+
+input UpdateTipjarInput {
+  id: Int!
+  name: String
+  position: String
+  company: String
+  city: String
+  state: String
+  email: String
+  payment: String
+  venmo: String
+  paypal: String
+  code: String
+}
+
+type Mutation {
+  deleteTipjar(id: Int!): tipjar
+  createTipjar(createTipjarInput: CreateTipjarInput!): tipjar
+  updateTipjar(updateTipjarInput: UpdateTipjarInput!): tipjar
+}
+
+type Query {
+  getTipjar(id: Int!): tipjar
+  listTipjars: [tipjar]
+}
+
+type Subscription {
+  onCreateTipjar: tipjar @aws_subscribe(mutations: ["createTipjar"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
