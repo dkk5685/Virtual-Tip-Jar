@@ -39,7 +39,7 @@ const DatatablePage = ({ tipJars }) => {
         </a>
       ) : (
         <React.Fragment>
-          <a href={`https://www.venmo.com/${tipJar.venmo}`} className="badge badge-primary p-2">
+          <a href={`https://www.venmo.com/${tipJar.venmo}`} className="badge badge-info p-2">
             <FontAwesomeIcon icon={faVimeoSquare} className="fa-2x" />
           </a>
           <br />
