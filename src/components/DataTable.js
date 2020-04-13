@@ -78,6 +78,7 @@ const DatatablePage = ({ tipJars }) => {
     <MDBDataTable
       small
       hover
+      pagesAmount={3}
       data={data}
     />
   );
