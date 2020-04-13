@@ -75,13 +75,13 @@ function App() {
         <footer className="page-footer text-center font-small mt-5 pt-5 wow fadeIn">
           <hr className="my-4" />
           <div className="pb-4">
-            <a href="https://www.facebook.com/confessionofaserver/" target="_blank">
+            <a href="https://www.facebook.com/confessionofaserver/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faFacebook} className="mr-3" />
             </a>
-            <a href="https://www.instagram.com/confessionsof_aserver/" target="_blank">
+            <a href="https://www.instagram.com/confessionsof_aserver/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faInstagram} className="mr-3" />
             </a>
-            <a href="https://www.youtube.com/c/confessionsofaserver" target="_blank">
+            <a href="https://www.youtube.com/c/confessionsofaserver" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faYoutube} className="mr-3" />
             </a>
           </div>

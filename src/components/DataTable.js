@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faSmile } from '@fortawesome/free-regular-svg-icons';
+import { faSmile } from '@fortawesome/free-regular-svg-icons';
 import { faPaypal, faVimeoSquare } from '@fortawesome/free-brands-svg-icons';
 import { faBeer, faHamburger, faBacon, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import { MDBDataTable } from 'mdbreact';
