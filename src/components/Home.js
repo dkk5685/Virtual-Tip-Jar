@@ -47,8 +47,8 @@ function Home({ tipJars }) {
           <hr className="mt-5 my-4" />
           <div className="d-flex flex-row justify-content-center">
             <div className="p-2">
-              <a 
-                href="mailto:confessionsofaserver@gmail.com"
+              <a
+                href="mailto:info@confessionsofaserver.com"
                 className="badge badge-primary p-2"
               >
                 <FontAwesomeIcon icon={faEnvelope} />
@@ -60,17 +60,17 @@ function Home({ tipJars }) {
           </div>
           <div className="d-flex flex-row justify-content-center">
             <div className="p-2">
-              <a 
+              <a
                 href="https://www.venmo.com/Danielle-K6"
                 className="badge badge-info p-2"
               >
-                <FontAwesomeIcon icon={faVimeoSquare} />  
+                <FontAwesomeIcon icon={faVimeoSquare} />
               </a>
             </div>
             <div className="p-2">
               <p className="card-text text-muted">
                 <small>
-                  <a href="https://www.venmo.com/Danielle-K6">Tips for website costs are much appreciated too!</a>
+                  <a href="https://www.venmo.com/Danielle-K6">Tips for web development costs are much appreciated too!</a>
                 </small>
               </p>
             </div>
