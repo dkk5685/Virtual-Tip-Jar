@@ -39,7 +39,7 @@ function App() {
     <Router>
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">COS Tip Jar</Navbar.Brand>
+          <Navbar.Brand href="/">Confessions of a Server Tip Jar</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>

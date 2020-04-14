@@ -20,6 +20,7 @@ function Register({ history, onCreateTipJar }) {
         company: "",
         city: "",
         state: "",
+        country: "",
         email: "",
         payment: "",
         paypal: "",
@@ -142,6 +143,16 @@ function Register({ history, onCreateTipJar }) {
                           required
                         />
                       </Form.Group>
+                      <Form.Group controlId="country">
+                        <Form.Label className="text-muted">Country</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Country (if outside the US)"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.country}
+                        />
+                      </Form.Group>
                       <Form.Group controlId="email">
                         <Form.Label className="text-muted">Email</Form.Label>
                         <Form.Control
@@ -156,7 +167,7 @@ function Register({ history, onCreateTipJar }) {
                       </Form.Group>
 
                       <Form.Group>
-                        <Form.Label className="text-muted">Payment</Form.Label>
+                        <Form.Label className="text-muted">Payment - choose one</Form.Label>
                         <InputGroup>
                           <InputGroup.Prepend>
                             <InputGroup.Text>
