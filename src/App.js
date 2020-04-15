@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import ReactGA from 'react-ga';
 
 import * as queries from './graphql/queries';
 import * as mutations from './graphql/mutations';
@@ -25,6 +26,8 @@ function App() {
   const [tipJars, setTipJars] = useState([])
   useEffect(() => {
     fetchTipjars();
+    ReactGA.initialize('UA-163494853-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
 
@@ -32,6 +35,10 @@ function App() {
     await API.graphql(graphqlOperation(mutations.createTipjar, {
       createTipjarInput: values
     }));
+    ReactGA.event({
+      category: 'tipjar',
+      action: 'create',
+    });
     fetchTipjars();
   }
 
