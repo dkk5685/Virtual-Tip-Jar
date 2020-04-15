@@ -46,7 +46,7 @@ function App() {
     <Router>
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">COS Tip Jar</Navbar.Brand>
+          <Navbar.Brand href="/">Confessions of a Server Tip Jar</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>
@@ -93,8 +93,8 @@ function App() {
             </a>
           </div>
           <div className="footer-copyright py-3" style={{backgroundColor:'info'}}>
-            © 2020 <a href="https://www.facebook.com/confessionofaserver/"> Confessions of a Server </a> <br />
-            Built with <FontAwesomeIcon icon={faHeart} /> in Dallas by a <a href="https://www.boldpug.com">BoldPug</a> and <a href="https://www.alexandratansing.com">Andromache</a>
+
+            Built with <FontAwesomeIcon icon={faHeart} /> in Dallas by a <a href="https://www.linkedin.com/in/daniellekurek/">BoldPug</a> and <a href="https://www.alexandratansing.com">Andromache</a>
           </div>
         </footer>
       </div>
