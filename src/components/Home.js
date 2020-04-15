@@ -11,6 +11,7 @@ import { faEnvelope, faSmile } from '@fortawesome/free-regular-svg-icons';
 import { faVimeoSquare } from '@fortawesome/free-brands-svg-icons';
 import { faBeer, faHamburger, faBacon, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import DataTable from './DataTable';
+import RandomTipJars from './RandomTipJars';
 
 
 function Home({ tipJars }) {
@@ -93,6 +94,13 @@ function Home({ tipJars }) {
                 <div className="p-2"><FontAwesomeIcon icon={faUserCog} />&nbsp; Manager</div>
               </div>
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <RandomTipJars
+              tipJars={tipJars}
+            />
           </Col>
         </Row>
         <Row>
