@@ -47,9 +47,6 @@ function Home({ tipJars }) {
           <hr className="mt-5 my-4" />
           <div className="d-flex flex-row justify-content-center">
             <div className="p-2">
-              <a
-                href="mailto:confessionsofaserver@gmail.com"
-                className="badge badge-primary p-2"
               >
                 <FontAwesomeIcon icon={faEnvelope} />
               </a>
@@ -70,9 +67,7 @@ function Home({ tipJars }) {
             <div className="p-2">
               <p className="card-text text-muted">
                 <small>
-                  <a href="https://www.venmo.com/Danielle-K6">If you like what we are doing, donations would be greatly appreciated for site development costs.</a>
                 </small>
-                  <p className="card-text text-muted"><small>Coded by volunteer developers to better the community, you can find our<a href="https://github.com/dkk5685/costipjar">open source code here.</a></small></p>              
               </p>
             </div>
           </div>
