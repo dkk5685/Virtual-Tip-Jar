@@ -1,15 +1,77 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { Form, Button, InputGroup } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import { withRouter } from 'react-router-dom'
+import { Form, Button, InputGroup, Row, Col, Card, Container } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import * as Yup from 'yup';
+import countries from './countries';
+
+const SignupSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .test('test-name', 'Invalid characters for name',
+      (value) => {
+        return /^[a-zA-Z]*$/.test(value);
+      })
+    .required('Required'),
+  company: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  city: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  state: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  country: Yup.string()
+    .required('Required'),
+  payment: Yup.string()
+    .required('Please choose a form of payment'),
+  paypal: Yup.string()
+    .when('payment', {
+      is: (value) => value === 'Paypal',
+      then: Yup.string().required('Please enter Paypal Information'),
+      otherwise: Yup.string().notRequired()
+    }),
+  venmo: Yup.string()
+    .when('payment', {
+      is: (value) => value === 'Venmo',
+      then: Yup.string()
+        .required('Please enter Venmo Information')
+        .test('test-venmo', 'Invalid Venmo name, can only contain - and _',
+          (value) => {
+            return /^[a-zA-Z0-9\-_]*$/.test(value);
+          }
+        ),
+      otherwise: Yup.string().notRequired()
+    }),
+  code: Yup.string()
+    .when('payment', {
+      is: (value) => value === 'Venmo',
+      then: Yup.string()
+        .test('test-venmo-code', 'Venmo code must be exactly 4 numbers',
+          (value) => {
+            return /^[0-9]{4}$/.test(value);
+          }
+        ),
+      otherwise: Yup.string().notRequired()
+    }),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+});
 
 function Register({ history, onCreateTipJar }) {
   const goHome = () => {
     history.push('/')
+  }
+  const getOptions = () => {
+    return countries.map((country) => {
+      return <option key={country.name}>{country.name}</option>
+    });
   }
 
   return (
@@ -20,12 +82,14 @@ function Register({ history, onCreateTipJar }) {
         company: "",
         city: "",
         state: "",
+        country: "United States",
         email: "",
         payment: "",
         paypal: "",
         venmo: "",
         code: "",
       }}
+      validationSchema={SignupSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
         await onCreateTipJar(values);
@@ -36,11 +100,14 @@ function Register({ history, onCreateTipJar }) {
     >
       {({
         values,
+        errors,
+        touched,
         handleChange,
         handleBlur,
         handleSubmit,
         setFieldValue,
-      }) => (
+      }) => {
+        return (
           <Container fluid="sm">
             <Row className="pt-5">
               <Col md={{ span: 6, offset: 3 }}>
@@ -52,11 +119,14 @@ function Register({ history, onCreateTipJar }) {
                         <Form.Control
                           type="text"
                           placeholder="First &amp; Last"
+                          isInvalid={touched.name && errors.name}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.name}
-                          required
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.name}
+                        </Form.Control.Feedback>
                       </Form.Group>
 
                       <Form.Group>
@@ -67,7 +137,7 @@ function Register({ history, onCreateTipJar }) {
                           type="radio"
                           label="Server"
                           value="Server"
-                          required
+                          isInvalid={touched.position && errors.position}
                           onChange={() => setFieldValue("position", "Server")}
                         />
                         <Form.Check
@@ -76,7 +146,7 @@ function Register({ history, onCreateTipJar }) {
                           type="radio"
                           label="Bartender"
                           value="Bartender"
-                          required
+                          isInvalid={touched.position && errors.position}
                           onChange={() => setFieldValue("position", "Bartender")}
                         />
                         <Form.Check
@@ -85,7 +155,7 @@ function Register({ history, onCreateTipJar }) {
                           type="radio"
                           label="Host&#47;Hostess"
                           value="Host&#47;Hostess"
-                          required
+                          isInvalid={touched.position && errors.position}
                           onChange={() => setFieldValue("position", "Host&#47;Hostess")}
                         />
                         <Form.Check
@@ -94,7 +164,7 @@ function Register({ history, onCreateTipJar }) {
                           type="radio"
                           label="Manager"
                           value="Manager"
-                          required
+                          isInvalid={touched.position && errors.position}
                           onChange={() => setFieldValue("position", "Manager")}
                         />
                         <Form.Check
@@ -103,9 +173,12 @@ function Register({ history, onCreateTipJar }) {
                           type="radio"
                           label="Cook"
                           value="Cook"
-                          required
+                          isInvalid={touched.position && errors.position}
                           onChange={() => setFieldValue("position", "Cook")}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.position}
+                        </Form.Control.Feedback>
                       </Form.Group>
 
                       <Form.Group controlId="company">
@@ -113,11 +186,14 @@ function Register({ history, onCreateTipJar }) {
                         <Form.Control
                           type="text"
                           placeholder="Restaurant&#47;Bar"
+                          isInvalid={touched.company && errors.company}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.company}
-                          required
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.company}
+                        </Form.Control.Feedback>
                       </Form.Group>
 
                       <Form.Group controlId="city">
@@ -125,22 +201,43 @@ function Register({ history, onCreateTipJar }) {
                         <Form.Control
                           type="text"
                           placeholder="City"
+                          isInvalid={touched.city && errors.city}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.city}
-                          required
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.city}
+                        </Form.Control.Feedback>
                       </Form.Group>
                       <Form.Group controlId="state">
-                        <Form.Label className="text-muted">State</Form.Label>
+                        <Form.Label className="text-muted">State/Region</Form.Label>
                         <Form.Control
                           type="text"
                           placeholder="State"
+                          isInvalid={touched.state && errors.state}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.state}
-                          required
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.state}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group controlId="country">
+                        <Form.Label className="text-muted">Country</Form.Label>
+                        <Form.Control
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.country}
+                          isInvalid={touched.country && errors.country}
+                          as="select"
+                        >
+                          {getOptions()}
+                        </Form.Control>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.country}
+                        </Form.Control.Feedback>
                       </Form.Group>
 
                       <Form.Group controlId="email">
@@ -148,11 +245,14 @@ function Register({ history, onCreateTipJar }) {
                         <Form.Control
                           type="email"
                           placeholder="Email"
+                          isInvalid={touched.email && errors.email}
                           onChange={handleChange}
                           onBlur={handleBlur}
                           value={values.email}
-                          required
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.email}
+                        </Form.Control.Feedback>
                         <Form.Text className="text-muted">We will not display on the site.</Form.Text>
                       </Form.Group>
 
@@ -166,19 +266,26 @@ function Register({ history, onCreateTipJar }) {
                                 type="radio"
                                 label="&nbsp; PayPal.me/ &nbsp;"
                                 value="paypal"
-                                required
+                                isInvalid={touched.payment && errors.payment}
                                 onChange={() => setFieldValue("payment", "Paypal")}
                               />
+                              <Form.Control.Feedback type="invalid">
+                                {errors.payment}
+                              </Form.Control.Feedback>
                             </InputGroup.Text>
                           </InputGroup.Prepend>
                           <Form.Control
                             name="paypal"
                             type="text"
                             placeholder="username"
+                            isInvalid={touched.paypal && errors.paypal}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.paypal}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.paypal}
+                          </Form.Control.Feedback>
                         </InputGroup>
                         <small className="form-text text-muted pb-3 pt-0">This is <strong>not</strong> your email, it's your PayPal.me/ username.</small>
                         <InputGroup>
@@ -189,27 +296,38 @@ function Register({ history, onCreateTipJar }) {
                                 type="radio"
                                 label="&nbsp; Venmo.com/"
                                 value="venmo"
-                                required
+                                isInvalid={touched.payment && errors.payment}
                                 onChange={() => setFieldValue("payment", "Venmo")}
                               />
+                              <Form.Control.Feedback type="invalid">
+                                {errors.payment}
+                              </Form.Control.Feedback>
                             </InputGroup.Text>
                           </InputGroup.Prepend>
                           <Form.Control
                             name="venmo"
                             type="text"
                             placeholder="username"
+                            isInvalid={touched.venmo && errors.venmo}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.venmo}
                           />
                           <Form.Control
                             name="code"
-                            type="text"
+                            type="number"
                             placeholder="code"
+                            isInvalid={touched.code && errors.code}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.code}
                           />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.venmo}
+                          </Form.Control.Feedback>
+                          <Form.Control.Feedback type="invalid">
+                            {errors.code}
+                          </Form.Control.Feedback>
                         </InputGroup>
                         <small className="form-text text-muted pb-4">Include your 4 digit Venmo code if applicable.</small>
                       </Form.Group>
@@ -228,7 +346,8 @@ function Register({ history, onCreateTipJar }) {
               </Col>
             </Row>
           </Container>
-        )}
+        )
+      }}
     </Formik>
   );
 }

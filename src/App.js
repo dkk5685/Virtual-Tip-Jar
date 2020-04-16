@@ -7,8 +7,8 @@ import {
   Route,
 } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faYoutube, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+// import { faYoutube, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import ReactGA from 'react-ga';
 
@@ -51,7 +51,7 @@ function App() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>
             <Nav>
-              <Nav.Link href="https://www.youtube.com/c/confessionsofaserver">
+              {/* <Nav.Link href="https://www.youtube.com/c/confessionsofaserver">
                 <FontAwesomeIcon icon={faYoutube} className="fa-lg" />
               </Nav.Link>
               <Nav.Link href="https://www.instagram.com/confessionsof_aserver/">
@@ -62,7 +62,7 @@ function App() {
               </Nav.Link>
               <Nav.Link href="mailto:confessionsofaserver@gmail.com">
                 <FontAwesomeIcon icon={faEnvelope} className="fa-lg" />
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -79,22 +79,10 @@ function App() {
           </Route>
         </Switch>
 
-        <footer className="page-footer text-center font-small mt-5 pt-5 wow fadeIn">
-          <hr className="my-4" />
-          <div className="pb-4">
-            <a href="https://www.facebook.com/confessionofaserver/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebook} className="mr-3" />
-            </a>
-            <a href="https://www.instagram.com/confessionsof_aserver/" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faInstagram} className="mr-3" />
-            </a>
-            <a href="https://www.youtube.com/c/confessionsofaserver" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faYoutube} className="mr-3" />
-            </a>
-          </div>
+        <footer className="page-footer text-center font-small mt-5 wow fadeIn">
           <div className="footer-copyright py-3" style={{backgroundColor:'info'}}>
 
-            Built with <FontAwesomeIcon icon={faHeart} /> in Dallas by a <a href="https://www.linkedin.com/in/daniellekurek/">BoldPug</a> and <a href="https://www.alexandratansing.com">Andromache</a>
+            Built with <FontAwesomeIcon icon={faHeart} /> in Dallas by a <a href="https://www.linkedin.com/in/daniellekurek/">BoldPug</a> and <a href="https://www.linkedin.com/in/alexandratansing/">Andromache</a>
           </div>
         </footer>
       </div>

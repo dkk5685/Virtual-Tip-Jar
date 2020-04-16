@@ -11,6 +11,7 @@ import { faEnvelope, faSmile } from '@fortawesome/free-regular-svg-icons';
 import { faVimeoSquare } from '@fortawesome/free-brands-svg-icons';
 import { faBeer, faHamburger, faBacon, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import DataTable from './DataTable';
+import RandomTipJars from './RandomTipJars';
 
 
 function Home({ tipJars }) {
@@ -27,7 +28,6 @@ function Home({ tipJars }) {
               </p>
             </Col>
           </Row>
-          <hr className="mt-5 my-4" />
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
               <Card>
@@ -81,7 +81,7 @@ function Home({ tipJars }) {
 
       <Container fluid="sm">
 
-        <Row className="pt-5">
+        <Row>
           <Col>
             <h5 className="card-subtitle mt-5 mb-4 text-muted" align="center">Help Your Service Industry Workers</h5>
             <div className="form-text text-muted mb-5 pb-3" align="center">
@@ -93,6 +93,13 @@ function Home({ tipJars }) {
                 <div className="p-2"><FontAwesomeIcon icon={faUserCog} />&nbsp; Manager</div>
               </div>
             </div>
+          </Col>
+        </Row>
+        <Row className="pb-5">
+          <Col>
+            <RandomTipJars
+              tipJars={tipJars}
+            />
           </Col>
         </Row>
         <Row>
