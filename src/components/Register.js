@@ -54,6 +54,7 @@ const SignupSchema = Yup.object().shape({
       then: Yup.string()
         .test('test-venmo-code', 'Venmo code must be exactly 4 numbers',
           (value) => {
+            if (!value) return true;
             return /^[0-9]{4}$/.test(value);
           }
         ),
