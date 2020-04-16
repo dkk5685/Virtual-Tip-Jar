@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -46,12 +46,12 @@ function App() {
     <Router>
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Confessions of a Server Tip Jar</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Brand href="/">Virtual Tip Jar</Navbar.Brand>
+          {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>
             <Nav>
-              {/* <Nav.Link href="https://www.youtube.com/c/confessionsofaserver">
+              <Nav.Link href="https://www.youtube.com/c/confessionsofaserver">
                 <FontAwesomeIcon icon={faYoutube} className="fa-lg" />
               </Nav.Link>
               <Nav.Link href="https://www.instagram.com/confessionsof_aserver/">
@@ -62,9 +62,9 @@ function App() {
               </Nav.Link>
               <Nav.Link href="mailto:confessionsofaserver@gmail.com">
                 <FontAwesomeIcon icon={faEnvelope} className="fa-lg" />
-              </Nav.Link> */}
+              </Nav.Link>
             </Nav>
-          </Navbar.Collapse>
+          </Navbar.Collapse> */}
         </Navbar>
         <Switch>
           <Route path="/register">
