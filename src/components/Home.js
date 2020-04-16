@@ -98,14 +98,14 @@ function Home({ tipJars }) {
         <Row className="pb-5">
           <Col>
             <RandomTipJars
-              tipJars={tipJars}
+              tipJars={/*tipJars*/}
             />
           </Col>
         </Row>
         <Row>
           <Col>
             <DataTable
-              tipJars={tipJars}
+              tipJars={/*tipJars*/}
             />
           </Col>
         </Row>
