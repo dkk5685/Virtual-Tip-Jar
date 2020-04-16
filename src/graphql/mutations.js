@@ -10,6 +10,7 @@ export const deleteTipjar = /* GraphQL */ `
       company
       city
       state
+      country
       email
       payment
       venmo
@@ -27,6 +28,7 @@ export const createTipjar = /* GraphQL */ `
       company
       city
       state
+      country
       email
       payment
       venmo
@@ -44,6 +46,7 @@ export const updateTipjar = /* GraphQL */ `
       company
       city
       state
+      country
       email
       payment
       venmo

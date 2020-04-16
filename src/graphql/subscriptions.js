@@ -10,6 +10,7 @@ export const onCreateTipjar = /* GraphQL */ `
       company
       city
       state
+      country
       email
       payment
       venmo

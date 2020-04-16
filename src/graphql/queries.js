@@ -10,6 +10,7 @@ export const getTipjar = /* GraphQL */ `
       company
       city
       state
+      country
       email
       payment
       venmo
@@ -27,6 +28,7 @@ export const listTipjars = /* GraphQL */ `
       company
       city
       state
+      country
       email
       payment
       venmo
