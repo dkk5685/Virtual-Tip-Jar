@@ -55,10 +55,7 @@ function Home({ tipJars }) {
           </div>
           <div className="d-flex flex-row justify-content-center">
             <div className="p-2">
-              <a
-                href="https://www.venmo.com/Danielle-K6"
-                className="badge badge-info p-2"
-              >
+
                 <FontAwesomeIcon icon={faVimeoSquare} />
               </a>
             </div>
