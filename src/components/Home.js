@@ -28,7 +28,6 @@ function Home({ tipJars }) {
               </p>
             </Col>
           </Row>
-          <hr className="mt-5 my-4" />
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
               <Card>
@@ -82,7 +81,7 @@ function Home({ tipJars }) {
 
       <Container fluid="sm">
 
-        <Row className="pt-5">
+        <Row>
           <Col>
             <h5 className="card-subtitle mt-5 mb-4 text-muted" align="center">Help Your Service Industry Workers</h5>
             <div className="form-text text-muted mb-5 pb-3" align="center">
@@ -96,7 +95,7 @@ function Home({ tipJars }) {
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className="pb-5">
           <Col>
             <RandomTipJars
               tipJars={tipJars}
