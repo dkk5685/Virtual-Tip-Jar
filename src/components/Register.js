@@ -11,7 +11,7 @@ const SignupSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .test('test-name', 'Invalid characters for name',
       (value) => {
-        return /^[a-zA-Z]*$/.test(value);
+        return /^[a-zA-Z ]*$/.test(value);
       })
     .required('Required'),
   company: Yup.string()
