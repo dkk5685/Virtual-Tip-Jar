@@ -47,11 +47,7 @@ function Home({ tipJars }) {
           <hr className="mt-5 my-4" />
           <div className="d-flex flex-row justify-content-center">
             <div className="p-2">
-              <a href="mailto:tipjar@boldpug.com"
-              className="badge badge-primary p-2"
-              >
-                <FontAwesomeIcon icon={faEnvelope} />
-              </a>
+
             </div>
             <div className="p-2">
               <p className="card-text text-muted"><small>This site is run by fellow unemployed SI volunteers.</small></p>
@@ -70,7 +66,7 @@ function Home({ tipJars }) {
               <p className="card-text text-muted">
                 <small>
 
-                  <a href="https://www.venmo.com/Danielle-K6">Tips for web development costs are much appreciated too!</a>
+
 
                 </small>
               </p>

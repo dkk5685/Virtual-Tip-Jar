@@ -82,7 +82,6 @@ function App() {
         <footer className="page-footer text-center font-small mt-5 wow fadeIn">
           <div className="footer-copyright py-3" style={{backgroundColor:'info'}}>
 
-            Built with <FontAwesomeIcon icon={faHeart} /> in Dallas by a <a href="https://www.linkedin.com/in/daniellekurek/">BoldPug</a> and <a href="https://www.linkedin.com/in/alexandratansing/">Andromache</a>
           </div>
         </footer>
       </div>
