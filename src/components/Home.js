@@ -56,8 +56,6 @@ function Home({ tipJars }) {
           <div className="d-flex flex-row justify-content-center">
             <div className="p-2">
 
-                <FontAwesomeIcon icon={faVimeoSquare} />
-              </a>
             </div>
             <div className="p-2">
               <p className="card-text text-muted">
